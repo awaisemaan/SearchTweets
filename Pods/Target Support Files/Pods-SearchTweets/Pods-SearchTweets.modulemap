@@ -1,6 +1,0 @@
-framework module Pods_SearchTweets {
-  umbrella header "Pods-SearchTweets-umbrella.h"
-
-  export *
-  module * { export * }
-}
