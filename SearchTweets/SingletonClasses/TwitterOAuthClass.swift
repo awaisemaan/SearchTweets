@@ -14,8 +14,8 @@ class TwitterOAuthClass: NSObject {
     
     private var accessToken: String!
     //Enter your Twitter Application Keys
-    private let consumerKey = "hBzKyWttCcZvuDyLMNXN5OG8h"
-    private let consumerSecret = "4D9VLjNnVfDH5HTECn7d2dyqXAjDnrc6gnj6lO50v2IV2G4ZQD"
+    private let consumerKey = "*****"
+    private let consumerSecret = "******"
     private let baseUrlString = "https://api.twitter.com/oauth2/token"
     private let pageSize = 100
 
@@ -31,7 +31,7 @@ class TwitterOAuthClass: NSObject {
         return isAuthenticated
     }
     
-    public func authenticate(completionBlock: @escaping (Void) -> ()) {
+    public func authenticate(completionBlock:(Void) -> ()) {
         if accessToken != nil {
             completionBlock()
         }
@@ -59,7 +59,7 @@ class TwitterOAuthClass: NSObject {
         }
     }
     
-    public func searchTweets(screenName: String, completionBlock: @escaping (NSMutableArray) -> ()) {
+    public func searchTweets(screenName: String, completionBlock:(NSMutableArray) -> ()) {
         if(isAuthenticated) {
             do {
                 let headers = ["Authorization": "Bearer \(self.accessToken!)"]
