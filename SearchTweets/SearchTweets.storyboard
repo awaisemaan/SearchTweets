@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search TweetsVC-->
+        <scene sceneID="ndS-IP-2dF">
+            <objects>
+                <viewController storyboardIdentifier="search_tweets" id="lP3-gr-WE5" customClass="SearchTweetsVC" customModule="SearchTweets" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cAE-M9-Edb"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZWM-JS-Smi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0K0-bw-2y3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1p-aW-cOG">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X01-rQ-67V">
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onClickBack:" destination="lP3-gr-WE5" eventType="touchUpInside" id="Rm2-4j-j4V"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.88942517452006975" green="0.88942517452006975" blue="0.88942517452006975" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="X01-rQ-67V" firstAttribute="leading" secondItem="k1p-aW-cOG" secondAttribute="leadingMargin" constant="12" id="6cg-KC-s4W"/>
+                                    <constraint firstAttribute="height" constant="70" id="UD5-im-bQa"/>
+                                    <constraint firstItem="X01-rQ-67V" firstAttribute="centerY" secondItem="k1p-aW-cOG" secondAttribute="centerY" constant="12" id="fsk-ZG-mob"/>
+                                </constraints>
+                            </view>
+                            <searchBar contentMode="redraw" text="" placeholder="Search Tweets Here" translatesAutoresizingMaskIntoConstraints="NO" id="ZLP-5c-BhY">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="odR-HB-1AM"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lP3-gr-WE5" id="Mch-ub-yln"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Sv-bS-2cf">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lP3-gr-WE5" id="WuJ-sS-WlF"/>
+                                    <outlet property="delegate" destination="lP3-gr-WE5" id="LCg-Be-6Wz"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4Sv-bS-2cf" firstAttribute="leading" secondItem="0K0-bw-2y3" secondAttribute="leading" id="H51-b4-FF0"/>
+                            <constraint firstItem="k1p-aW-cOG" firstAttribute="leading" secondItem="0K0-bw-2y3" secondAttribute="leading" id="Y34-rA-QsT"/>
+                            <constraint firstItem="ZLP-5c-BhY" firstAttribute="top" secondItem="k1p-aW-cOG" secondAttribute="bottom" id="Yyw-Yn-TC2"/>
+                            <constraint firstItem="4Sv-bS-2cf" firstAttribute="top" secondItem="ZLP-5c-BhY" secondAttribute="bottom" id="ZzI-mZ-SCe"/>
+                            <constraint firstItem="ZLP-5c-BhY" firstAttribute="leading" secondItem="0K0-bw-2y3" secondAttribute="leading" id="c3s-ne-60R"/>
+                            <constraint firstItem="ZWM-JS-Smi" firstAttribute="top" secondItem="4Sv-bS-2cf" secondAttribute="bottom" id="fLF-CS-Sit"/>
+                            <constraint firstAttribute="trailing" secondItem="ZLP-5c-BhY" secondAttribute="trailing" id="giM-GQ-pgb"/>
+                            <constraint firstAttribute="trailing" secondItem="k1p-aW-cOG" secondAttribute="trailing" id="ii9-Wa-Krl"/>
+                            <constraint firstItem="k1p-aW-cOG" firstAttribute="top" secondItem="0K0-bw-2y3" secondAttribute="top" id="p42-V6-b6N"/>
+                            <constraint firstAttribute="trailing" secondItem="4Sv-bS-2cf" secondAttribute="trailing" id="xJ2-4f-FDm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="ZLP-5c-BhY" id="pSH-bW-ZKp"/>
+                        <outlet property="searchDisplayController" destination="MTs-Sp-puE" id="lAQ-2r-Uxj"/>
+                        <outlet property="tblSearchTweets" destination="4Sv-bS-2cf" id="U0S-6U-m67"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iHs-IK-awh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="MTs-Sp-puE">
+                    <connections>
+                        <outlet property="delegate" destination="lP3-gr-WE5" id="ktq-1O-oF9"/>
+                        <outlet property="searchContentsController" destination="lP3-gr-WE5" id="6jt-My-zyB"/>
+                        <outlet property="searchResultsDataSource" destination="lP3-gr-WE5" id="qp3-iu-Fvx"/>
+                        <outlet property="searchResultsDelegate" destination="lP3-gr-WE5" id="ziG-WK-l9v"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-55.200000000000003" y="172.26386806596702"/>
+        </scene>
+    </scenes>
+</document>
